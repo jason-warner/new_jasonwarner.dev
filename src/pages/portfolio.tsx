@@ -4,9 +4,11 @@ export default function portfolio() {
 
     return (
         <Layout>
-            <div className="">
-                <h1>Portfolio</h1>
-            </div>
+            <Layout.Page title="Portfolio">
+                <div className="flex flex-row">
+
+                </div>
+            </Layout.Page>
         </Layout>
     )
 }

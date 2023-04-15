@@ -4,9 +4,11 @@ export default function contact() {
 
     return (
         <Layout>
-            <div className="">
-                <h1>Contact</h1>
-            </div>
+            <Layout.Page title="Contact">
+                <div className="flex flex-row">
+
+                </div>
+            </Layout.Page>
         </Layout>
     )
 }

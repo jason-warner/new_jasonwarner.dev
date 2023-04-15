@@ -4,6 +4,7 @@ import Selfie from '../../../public/img/jason.jpg'
 import { useRouter } from 'next/router'
 import { useWindowSize } from "../hooks/useWindowSize";
 import { IAnimationStyle, INavBar, TNavItems } from '../types';
+import { TextWrapper } from '../utils/TextWrapper';
 
 
 export const Navbar = ({
@@ -59,9 +60,10 @@ export const Navbar = ({
                     className='flex items-center'
                     style={{
                         padding: '0 20%',
-                        transition: 'all 0.5s ease-out',
+                        transition: 'transform 0.5s ease-out',
                         transform: navClicked ? 'translate3d(0, 0, 0)' : 'translate3d(-50vw, 0, 0)',
-                        transitionDelay: `${(navItems?.length - 1) * 0.1}s`
+                        transitionDelay: `${(navItems?.length - 1) * 0.1}s`,
+                        opacity: navClicked ? 1 : 0
                     }}
                 >
                     <Image
@@ -79,21 +81,24 @@ export const Navbar = ({
                         return (
                             <div
                                 style={{
-                                    transition: 'all 0.5s ease-out',
+                                    transition: 'transform 0.5s ease-out',
                                     transform: navClicked ? 'translate3d(0, 0, 0)' : 'translate3d(50vw, 0, 0)',
-                                    transitionDelay: `${index * 0.1}s`
+                                    transitionDelay: `${index * 0.1}s`,
+                                    opacity: navClicked ? 1 : 0
                                 }}
-                                className={`self-center py-2 sm:py-4 md:py-6 lg:py-8 xl:py-10 hover:text-secondaryFont hover:cursor-pointer`}
+                                className={`self-center my-2 sm:my-4 md:my-6 lg:my-8 xl:my-10 hover:text-secondaryFont hover:cursor-pointer`}
                                 key={`${item}-${index}`}
                             >
                                 <Link
                                     className='w-full h-full'
                                     href={`${navLink(item)}`}
                                 >
-                                    <span
-                                        className={`text-3xl sm:text-4xlg lg:text-5xl xl:text-6xl ${navLinkClass(item)}`}>
+                                    <TextWrapper
+                                        size='lg'
+                                        className={`${navLinkClass(item)}`}
+                                    >
                                         {item}
-                                    </span>
+                                    </TextWrapper>
                                 </Link>
                             </div>
                         )

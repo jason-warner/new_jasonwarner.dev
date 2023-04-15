@@ -4,9 +4,11 @@ export default function toolkit() {
 
     return (
         <Layout>
-            <div className="">
-                <h1>Toolkit</h1>
-            </div>
+            <Layout.Page title="Toolkit">
+                <div className="flex flex-row">
+
+                </div>
+            </Layout.Page>
         </Layout>
     )
 }
